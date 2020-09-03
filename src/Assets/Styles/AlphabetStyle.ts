@@ -1,7 +1,7 @@
 // Global Imports
-import { StyleSheet, ViewStyle, TextStyle, Dimensions } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle, Dimensions } from "react-native";
 
-const { height } = Dimensions.get('screen');
+const { height } = Dimensions.get("screen");
 
 // Local Imports
 
@@ -9,6 +9,7 @@ export const AlphabetStyle = StyleSheet.create({
 	container: {
 		marginHorizontal: 10,
 		zIndex: 2,
+		backgroundColor: "red",
 	} as ViewStyle,
 	alphabetButton: {
 		paddingVertical: 5,
@@ -16,9 +17,9 @@ export const AlphabetStyle = StyleSheet.create({
 	} as ViewStyle,
 	alphabetText: {
 		fontSize: 10,
-		textAlign: 'center',
+		textAlign: "center",
 	} as TextStyle,
 	selected: {
-		fontWeight: 'bold',
+		fontWeight: "bold",
 	} as TextStyle,
 });

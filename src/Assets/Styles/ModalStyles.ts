@@ -6,7 +6,7 @@ import { StyleSheet, ViewStyle } from "react-native";
 export const ModalStyles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "red",
+		backgroundColor: "#fff",
 	} as ViewStyle,
 	listArea: {
 		flex: 1,

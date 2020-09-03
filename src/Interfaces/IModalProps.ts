@@ -5,11 +5,12 @@ import {
 	ModalBaseProps,
 	ModalPropsIOS,
 	ModalPropsAndroid,
-} from 'react-native';
+	ViewStyle,
+} from "react-native";
 
 // Local Imports
-import { AnimationTypeEnum } from '@Enum';
-import { IModalListInDto } from '@Interfaces';
+import { AnimationTypeEnum } from "@Enum";
+import { IModalListInDto } from "@Interfaces";
 
 type ModalProps = ModalBaseProps | ModalPropsIOS | ModalPropsAndroid;
 
@@ -39,10 +40,18 @@ export interface IModalProps {
 	autoSort?: boolean;
 	disabled: boolean;
 	requireSelection: boolean;
-	renderListItem?: (selectedItem: IModalListInDto, listItem: IModalListInDto) => JSX.Element
-	renderSelectView?: (disabled: boolean, selected: IModalListInDto, showModal: () => void) => React.ReactElement
-	backButtonDisabled?: boolean,
-	renderSearch?: (onClose: () => void, onBack: () => void ) =>  JSX.Element,
+	renderListItem?: (
+		selectedItem: IModalListInDto,
+		listItem: IModalListInDto
+	) => JSX.Element;
+	renderSelectView?: (
+		disabled: boolean,
+		selected: IModalListInDto,
+		showModal: () => void
+	) => React.ReactElement;
+	backButtonDisabled?: boolean;
+	renderSearch?: (onClose: () => void, onBack: () => void) => JSX.Element;
+	modalContainerStyle: ViewStyle;
 }
 
 export interface IModalState {

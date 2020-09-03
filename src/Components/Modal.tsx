@@ -1,26 +1,62 @@
 // Global Imports
-import * as React from 'react';
-import { Modal, View, FlatList, KeyboardAvoidingView, NativeSyntheticEvent, NativeScrollEvent, Platform, SafeAreaView, TouchableOpacity } from 'react-native';
+import * as React from "react";
+import {
+	Modal,
+	View,
+	FlatList,
+	KeyboardAvoidingView,
+	NativeSyntheticEvent,
+	NativeScrollEvent,
+	Platform,
+	SafeAreaView,
+	TouchableOpacity,
+} from "react-native";
 // Local Imports
-import { AlphabetComponent, ListItemComponent, SearchComponent, ScrollToTopComponent, SelectBoxComponent } from '@Components';
-import { IModalProps, IModalListInDto, IModalState } from '@Interfaces';
-import { ModalStyles, CommonStyle } from '@Styles';
-import { generateAlphabet, getFilteredData, getIndex } from '@Helpers';
-export class ModalComponent extends React.PureComponent<IModalProps, IModalState> {
-
+import {
+	AlphabetComponent,
+	ListItemComponent,
+	SearchComponent,
+	ScrollToTopComponent,
+	SelectBoxComponent,
+} from "@Components";
+import { IModalProps, IModalListInDto, IModalState } from "@Interfaces";
+import { ModalStyles, CommonStyle } from "@Styles";
+import { generateAlphabet, getFilteredData, getIndex } from "@Helpers";
+export class ModalComponent extends React.PureComponent<
+	IModalProps,
+	IModalState
+> {
 	private flatListRef = null;
 	private numToRender: number = 20;
 
 	public state: IModalState = {
 		modalVisible: false,
-		searchText: '',
+		searchText: "",
 		stickyBottomButton: false,
 		selectedAlpha: null,
 		selectedObject: {} as IModalListInDto,
 	};
 
-	public static defaultProps = { showToTopButton: true, modalAnimationType: 'slide', showAlphabeticalIndex: false, searchInputTextColor: '#252525', autoGenerateAlphabeticalIndex: false, sortingLanguage: 'tr', removeClippedSubviews: false, selectPlaceholderText: 'Choose one...', searchPlaceholderText: 'Search...', autoSort: false, items: [], disabled: false, requireSelection: false, };
-	private viewabilityConfig: { minimumViewTime: number; waitForInteraction: boolean; viewAreaCoveragePercentThreshold: number; };
+	public static defaultProps = {
+		showToTopButton: true,
+		modalAnimationType: "slide",
+		showAlphabeticalIndex: false,
+		searchInputTextColor: "#252525",
+		autoGenerateAlphabeticalIndex: false,
+		sortingLanguage: "tr",
+		removeClippedSubviews: false,
+		selectPlaceholderText: "Choose one...",
+		searchPlaceholderText: "Search...",
+		autoSort: false,
+		items: [],
+		disabled: false,
+		requireSelection: false,
+	};
+	private viewabilityConfig: {
+		minimumViewTime: number;
+		waitForInteraction: boolean;
+		viewAreaCoveragePercentThreshold: number;
+	};
 
 	constructor(props: IModalProps) {
 		super(props);
@@ -28,13 +64,13 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 		this.viewabilityConfig = {
 			minimumViewTime: 500,
 			waitForInteraction: true,
-			viewAreaCoveragePercentThreshold: 95
-		}
+			viewAreaCoveragePercentThreshold: 95,
+		};
 	}
 	private _clearComponent(): void {
 		this.setState({
 			stickyBottomButton: false,
-			searchText: '',
+			searchText: "",
 			selectedAlpha: null,
 		});
 	}
@@ -44,9 +80,19 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 	}
 
 	public componentDidMount(): void {
-		const { autoGenerateAlphabeticalIndex, alphabeticalIndexChars, items, sortingLanguage } = this.props;
+		const {
+			autoGenerateAlphabeticalIndex,
+			alphabeticalIndexChars,
+			items,
+			sortingLanguage,
+		} = this.props;
 		if (autoGenerateAlphabeticalIndex) {
-			this.setState({ alphabeticalIndexChars: generateAlphabet(items, sortingLanguage) });
+			this.setState({
+				alphabeticalIndexChars: generateAlphabet(
+					items,
+					sortingLanguage
+				),
+			});
 		} else if (alphabeticalIndexChars) {
 			this.setState({
 				alphabeticalIndexChars,
@@ -55,9 +101,19 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 	}
 
 	private _openModal(): void {
-		const { items, autoGenerateAlphabeticalIndex, disabled, sortingLanguage } = this.props;
+		const {
+			items,
+			autoGenerateAlphabeticalIndex,
+			disabled,
+			sortingLanguage,
+		} = this.props;
 		if (autoGenerateAlphabeticalIndex) {
-			this.setState({ alphabeticalIndexChars: generateAlphabet(items, sortingLanguage) });
+			this.setState({
+				alphabeticalIndexChars: generateAlphabet(
+					items,
+					sortingLanguage
+				),
+			});
 		}
 
 		if (items.length > 0 && !disabled) {
@@ -72,9 +128,39 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 	}
 
 	public render(): JSX.Element {
-		const { autoSort, modalAnimationType, onClosed, showAlphabeticalIndex, searchInputTextColor, keyExtractor, showToTopButton, onEndReached, removeClippedSubviews, FlatListProps, selectPlaceholderText, searchPlaceholderText, SearchInputProps, selected, disabled, items, requireSelection, renderSelectView, ModalProps, backButtonDisabled, renderSearch } = this.props;
+		const {
+			autoSort,
+			modalAnimationType,
+			onClosed,
+			showAlphabeticalIndex,
+			searchInputTextColor,
+			keyExtractor,
+			showToTopButton,
+			onEndReached,
+			removeClippedSubviews,
+			FlatListProps,
+			selectPlaceholderText,
+			searchPlaceholderText,
+			SearchInputProps,
+			selected,
+			disabled,
+			items,
+			requireSelection,
+			renderSelectView,
+			ModalProps,
+			backButtonDisabled,
+			renderSearch,
+			modalContainerStyle,
+		} = this.props;
 
-		const { modalVisible, alphabeticalIndexChars, stickyBottomButton, selectedAlpha, selectedObject, searchText } = this.state;
+		const {
+			modalVisible,
+			alphabeticalIndexChars,
+			stickyBottomButton,
+			selectedAlpha,
+			selectedObject,
+			searchText,
+		} = this.state;
 
 		return (
 			<React.Fragment>
@@ -83,7 +169,11 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 					items={items}
 					disabled={disabled}
 					selectedObject={selectedObject}
-					chooseText={(selected && selected.Name) ? selected.Name : selectPlaceholderText}
+					chooseText={
+						selected && selected.Name
+							? selected.Name
+							: selectPlaceholderText
+					}
 					openModal={this.openModal.bind(this)}
 				/>
 				<Modal
@@ -92,63 +182,91 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 					onRequestClose={() => onClosed}
 					{...ModalProps}
 				>
-					<SafeAreaView style={ModalStyles.container}>
-						{
-							renderSearch ? renderSearch(
-									this.onClose.bind(this), 
-									this.onBackRequest.bind(this)
-								) : (
-								<SearchComponent
-									searchText={searchPlaceholderText}
-									placeholderTextColor={searchInputTextColor}
-									onClose={this.onClose.bind(this)}
-									onBackRequest={this.onBackRequest.bind(this)}
-									forceSelect={requireSelection}
-									setText={(text: string) => this.setText(text)}
-									backButtonDisabled={backButtonDisabled}
-									{...SearchInputProps}
-								/>
+					<SafeAreaView
+						style={[ModalStyles.container, modalContainerStyle]}
+					>
+						{renderSearch ? (
+							renderSearch(
+								this.onClose.bind(this),
+								this.onBackRequest.bind(this)
 							)
-						}
-						<KeyboardAvoidingView style={ModalStyles.keyboardContainer}
-							behavior={Platform.OS === 'ios' ? 'padding' : null}
-							enabled>
+						) : (
+							<SearchComponent
+								searchText={searchPlaceholderText}
+								placeholderTextColor={searchInputTextColor}
+								onClose={this.onClose.bind(this)}
+								onBackRequest={this.onBackRequest.bind(this)}
+								forceSelect={requireSelection}
+								setText={(text: string) => this.setText(text)}
+								backButtonDisabled={backButtonDisabled}
+								{...SearchInputProps}
+							/>
+						)}
+						<KeyboardAvoidingView
+							style={ModalStyles.keyboardContainer}
+							behavior={Platform.OS === "ios" ? "padding" : null}
+							enabled
+						>
 							<View style={ModalStyles.listArea}>
 								<FlatList
-									ref={(ref) => this.flatListRef = ref}
-									keyExtractor={keyExtractor ? keyExtractor : (item, index) => index.toString()}
-									data={getFilteredData(items, autoSort, searchText)}
-									renderItem={({ item, index }) => this.renderItem(item, index)}
-									onScroll={showToTopButton && this.onScrolling.bind(this)}
+									ref={(ref) => (this.flatListRef = ref)}
+									keyExtractor={
+										keyExtractor
+											? keyExtractor
+											: (item, index) => index.toString()
+									}
+									data={getFilteredData(
+										items,
+										autoSort,
+										searchText
+									)}
+									renderItem={({ item, index }) =>
+										this.renderItem(item, index)
+									}
+									onScroll={
+										showToTopButton &&
+										this.onScrolling.bind(this)
+									}
 									initialNumToRender={this.numToRender}
-									keyboardShouldPersistTaps={'always'}
-									keyboardDismissMode={'interactive'}
+									keyboardShouldPersistTaps={"always"}
+									keyboardDismissMode={"interactive"}
 									onEndReached={onEndReached}
 									maxToRenderPerBatch={20}
 									legacyImplementation={false}
 									updateCellsBatchingPeriod={50}
-									removeClippedSubviews={removeClippedSubviews}
+									removeClippedSubviews={
+										removeClippedSubviews
+									}
 									viewabilityConfig={this.viewabilityConfig}
 									getItemLayout={(_, index) => ({
 										length: CommonStyle.BTN_HEIGHT,
 										offset: CommonStyle.BTN_HEIGHT * index,
-										index
+										index,
 									})}
-									onViewableItemsChanged={this._onViewableItemsChanged}
+									onViewableItemsChanged={
+										this._onViewableItemsChanged
+									}
 									{...FlatListProps}
 								/>
 								<AlphabetComponent
-									showAlphabeticalIndex={showAlphabeticalIndex}
-									setAlphabet={(alphabet: string) => this.setAlphabet(alphabet)}
+									showAlphabeticalIndex={
+										showAlphabeticalIndex
+									}
+									setAlphabet={(alphabet: string) =>
+										this.setAlphabet(alphabet)
+									}
 									alphabets={alphabeticalIndexChars}
 									selectedAlpha={selectedAlpha}
 								/>
 							</View>
 						</KeyboardAvoidingView>
-						<ScrollToTopComponent goToUp={this.scrollToUp.bind(this)} stickyBottomButton={stickyBottomButton} />
+						<ScrollToTopComponent
+							goToUp={this.scrollToUp.bind(this)}
+							stickyBottomButton={stickyBottomButton}
+						/>
 					</SafeAreaView>
 				</Modal>
-			</React.Fragment >
+			</React.Fragment>
 		);
 	}
 
@@ -165,7 +283,14 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 		const { onClosed, onSelected, requireSelection, selected } = this.props;
 		const { modalVisible, selectedObject } = this.state;
 
-		if (requireSelection && (selectedObject && ![selectedObject.Id]) && (selected && ![selected.Id])) return;
+		if (
+			requireSelection &&
+			selectedObject &&
+			![selectedObject.Id] &&
+			selected &&
+			![selected.Id]
+		)
+			return;
 
 		if (!requireSelection) {
 			onSelected({} as IModalListInDto);
@@ -204,11 +329,17 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 
 	private _scrollToUp(): void {
 		if (this.flatListRef) {
-			this.setState({
-				selectedAlpha: null,
-			}, () => {
-				this.flatListRef.scrollToOffset({ animated: true, offset: 0 });
-			});
+			this.setState(
+				{
+					selectedAlpha: null,
+				},
+				() => {
+					this.flatListRef.scrollToOffset({
+						animated: true,
+						offset: 0,
+					});
+				}
+			);
 		}
 	}
 
@@ -238,21 +369,22 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 		const { selected, renderListItem } = this.props;
 
 		return (
-			(renderListItem &&
+			(renderListItem && (
 				<TouchableOpacity
 					key={index.toString()}
 					onPress={() => this.onSelectMethod(item)}
 				>
 					{renderListItem(selected, item)}
-				</TouchableOpacity>)
-			||
-			<ListItemComponent
-				key={index.toString()}
-				defaultSelected={selected}
-				list={item}
-				onSelectMethod={this.onSelectMethod.bind(this)}
-			/>
-		)
+				</TouchableOpacity>
+			)) || (
+				<ListItemComponent
+					key={index.toString()}
+					defaultSelected={selected}
+					list={item}
+					onSelectMethod={this.onSelectMethod.bind(this)}
+				/>
+			)
+		);
 	}
 
 	public renderItem(item: IModalListInDto, index: number): JSX.Element {
@@ -289,20 +421,39 @@ export class ModalComponent extends React.PureComponent<IModalProps, IModalState
 	}
 
 	private _setAlphabet(alphabet: string): void {
-		this.setState({
-			selectedAlpha: alphabet,
-		}, () => {
-			const list = getFilteredData(this.props.items, this.props.autoSort, this.state.searchText);
-			const findIndex = getIndex(alphabet, this.props.items, this.props.autoSort, this.state.searchText);
+		this.setState(
+			{
+				selectedAlpha: alphabet,
+			},
+			() => {
+				const list = getFilteredData(
+					this.props.items,
+					this.props.autoSort,
+					this.state.searchText
+				);
+				const findIndex = getIndex(
+					alphabet,
+					this.props.items,
+					this.props.autoSort,
+					this.state.searchText
+				);
 
-			if (findIndex >= 0 && findIndex <= (list.length - (this.numToRender / 2))) {
-				setTimeout(() => {
-					this.flatListRef.scrollToIndex({ animated: true, index: findIndex, viewPosition: 0 });
-				}, 100);
-			} else {
-				this.flatListRef.scrollToEnd();
+				if (
+					findIndex >= 0 &&
+					findIndex <= list.length - this.numToRender / 2
+				) {
+					setTimeout(() => {
+						this.flatListRef.scrollToIndex({
+							animated: true,
+							index: findIndex,
+							viewPosition: 0,
+						});
+					}, 100);
+				} else {
+					this.flatListRef.scrollToEnd();
+				}
 			}
-		});
+		);
 	}
 
 	public setAlphabet(alphabet: string): void {

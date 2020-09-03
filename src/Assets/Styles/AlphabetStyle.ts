@@ -9,7 +9,6 @@ export const AlphabetStyle = StyleSheet.create({
 	container: {
 		marginHorizontal: 10,
 		zIndex: 2,
-		backgroundColor: "red",
 	} as ViewStyle,
 	alphabetButton: {
 		paddingVertical: 5,

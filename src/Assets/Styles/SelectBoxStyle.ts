@@ -9,7 +9,7 @@ import {
 
 export const SelectBoxStyle = StyleSheet.create({
 	container: {
-		backgroundColor: "red",
+		backgroundColor: "#fff",
 		paddingHorizontal: 10,
 		paddingVertical: 10,
 		position: "relative",

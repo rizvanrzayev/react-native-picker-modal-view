@@ -1,9 +1,10 @@
-import { StyleSheet, Dimensions } from 'react-native';
-const { height } = Dimensions.get('screen');
+import { StyleSheet, Dimensions } from "react-native";
+const { height } = Dimensions.get("screen");
 export const AlphabetStyle = StyleSheet.create({
     container: {
         marginHorizontal: 10,
         zIndex: 2,
+        backgroundColor: "red",
     },
     alphabetButton: {
         paddingVertical: 5,
@@ -11,10 +12,10 @@ export const AlphabetStyle = StyleSheet.create({
     },
     alphabetText: {
         fontSize: 10,
-        textAlign: 'center',
+        textAlign: "center",
     },
     selected: {
-        fontWeight: 'bold',
+        fontWeight: "bold",
     },
 });
 //# sourceMappingURL=AlphabetStyle.js.map

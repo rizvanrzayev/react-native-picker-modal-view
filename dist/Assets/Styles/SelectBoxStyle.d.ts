@@ -1,4 +1,4 @@
-import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { ViewStyle, TextStyle, ImageStyle } from "react-native";
 export declare const SelectBoxStyle: {
     container: ViewStyle;
     chooseText: TextStyle;

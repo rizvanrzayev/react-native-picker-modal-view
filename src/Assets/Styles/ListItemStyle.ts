@@ -1,13 +1,13 @@
 // Global Imports
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from "react-native";
 
 // Local Imports
-import { CommonStyle } from './CommonStyle';
+import { CommonStyle } from "./CommonStyle";
 
 export const ListItemStyle = StyleSheet.create({
 	container: {
 		flex: 1,
-		flexDirection: 'column',
+		flexDirection: "column",
 		height: CommonStyle.BTN_HEIGHT,
 	} as ViewStyle,
 	btnContainer: {
@@ -16,10 +16,10 @@ export const ListItemStyle = StyleSheet.create({
 		marginRight: 10,
 		paddingVertical: 15,
 		borderBottomWidth: 0.5,
-		borderBottomColor: 'rgba(0,0,0,.05)',
+		borderBottomColor: "rgba(0,0,0,.05)",
 	} as ViewStyle,
 	selected: {
-    color: '#000',
-		fontWeight: 'bold',
+		color: "#fff",
+		fontWeight: "bold",
 	} as TextStyle,
 });

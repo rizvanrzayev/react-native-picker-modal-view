@@ -17,8 +17,10 @@ export const AlphabetStyle = StyleSheet.create({
 	alphabetText: {
 		fontSize: 10,
 		textAlign: "center",
+		color: "#fff",
 	} as TextStyle,
 	selected: {
 		fontWeight: "bold",
+		color: "#fff",
 	} as TextStyle,
 });

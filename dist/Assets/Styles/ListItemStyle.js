@@ -12,7 +12,7 @@ export const ListItemStyle = StyleSheet.create({
         marginRight: 10,
         paddingVertical: 15,
         borderBottomWidth: 0.5,
-        borderBottomColor: "rgba(0,0,0,.05)",
+        borderBottomColor: "rgba(255,255,255,.05)",
     },
     selected: {
         color: "#fff",

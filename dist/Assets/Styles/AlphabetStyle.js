@@ -12,9 +12,11 @@ export const AlphabetStyle = StyleSheet.create({
     alphabetText: {
         fontSize: 10,
         textAlign: "center",
+        color: "#fff",
     },
     selected: {
         fontWeight: "bold",
+        color: "#fff",
     },
 });
 //# sourceMappingURL=AlphabetStyle.js.map

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TouchableOpacity, Image } from 'react-native';
-import { ScrollToTopStyle } from '../Assets/Styles';
+import { ScrollToTopStyle } from '@Styles';
 export class ScrollToTopComponent extends React.PureComponent {
     render() {
         const { goToUp, stickyBottomButton } = this.props;

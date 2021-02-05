@@ -15,8 +15,13 @@ export const ListItemStyle = StyleSheet.create({
         borderBottomColor: "rgba(255,255,255,.05)",
     },
     selected: {
-        color: "#fff",
+        color: "#000",
         fontWeight: "bold",
+        fontSize: 15,
+    },
+    notSelected: {
+        color: '#fff',
+        fontSize: 15,
     },
 });
 //# sourceMappingURL=ListItemStyle.js.map

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { SelectBoxStyle } from '../Assets/Styles';
+import { SelectBoxStyle } from '@Styles';
 export class SelectBoxComponent extends React.PureComponent {
     render() {
         const { openModal, selectedObject, chooseText, disabled, renderSelectView, items } = this.props;

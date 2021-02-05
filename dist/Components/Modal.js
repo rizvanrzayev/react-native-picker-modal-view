@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Modal, View, FlatList, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity, } from "react-native";
-import { AlphabetComponent, ListItemComponent, SearchComponent, ScrollToTopComponent, SelectBoxComponent, } from "./";
-import { ModalStyles, CommonStyle } from "../Assets/Styles";
-import { generateAlphabet, getFilteredData, getIndex } from "../Helpers";
+import { AlphabetComponent, ListItemComponent, SearchComponent, ScrollToTopComponent, SelectBoxComponent, } from "@Components";
+import { ModalStyles, CommonStyle } from "@Styles";
+import { generateAlphabet, getFilteredData, getIndex } from "@Helpers";
 export class ModalComponent extends React.PureComponent {
     constructor(props) {
         super(props);

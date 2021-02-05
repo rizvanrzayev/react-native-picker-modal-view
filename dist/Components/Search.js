@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, TextInput, TouchableOpacity, Image } from 'react-native';
-import { SearchStyle } from '../Assets/Styles';
+import { SearchStyle } from '@Styles';
 export class SearchComponent extends React.PureComponent {
     render() {
         const { SearchInputProps, placeholderTextColor, onClose, setText, forceSelect, searchText, onBackRequest, backButtonDisabled } = this.props;

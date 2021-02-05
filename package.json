@@ -35,7 +35,9 @@
 	],
 	"author": "Pankod <info@pankod.com>",
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"tsc": "^1.20150623.0"
+	},
 	"devDependencies": {
 		"@babel/core": "*",
 		"@babel/preset-env": "*",
@@ -63,8 +65,8 @@
 		"react-test-renderer": "^16.8.6",
 		"react-testing-library": "^6.1.2",
 		"ts-jest": "^24.0.2",
-		"tslib": "1.9.3",
 		"tscpaths": "0.0.7",
+		"tslib": "1.9.3",
 		"tslint": "^5.15.0",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-react": "^4.0.0",

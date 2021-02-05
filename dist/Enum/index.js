@@ -1,2 +1,2 @@
-export { AnimationTypeEnum } from './AnimationTypeEnum';
+export { AnimationTypeEnum } from '@Enum/AnimationTypeEnum';
 //# sourceMappingURL=index.js.map

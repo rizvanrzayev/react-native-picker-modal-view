@@ -1,1 +1,1 @@
-export { AnimationTypeEnum } from './AnimationTypeEnum';
+export { AnimationTypeEnum } from '@Enum/AnimationTypeEnum';

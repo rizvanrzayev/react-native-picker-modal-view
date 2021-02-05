@@ -1,4 +1,4 @@
-import { IModalListInDto } from '@Interfaces';
+import { IModalListInDto } from './';
 export interface IListItemInDto {
     list: IModalListInDto;
     onSelectMethod: (obj: IModalListInDto) => IModalListInDto;

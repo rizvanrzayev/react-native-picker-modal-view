@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import { AlphabetStyle } from '@Styles';
+import { AlphabetStyle } from '../Assets/Styles';
 export class AlphabetComponent extends React.PureComponent {
     render() {
         const { alphabets, setAlphabet, selectedAlpha, showAlphabeticalIndex } = this.props;

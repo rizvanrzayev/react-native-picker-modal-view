@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import { ListItemStyle } from '@Styles';
+import { ListItemStyle } from '../Assets/Styles';
 export class ListItemComponent extends React.PureComponent {
     render() {
         const { onSelectMethod, defaultSelected, list: { Name } } = this.props;

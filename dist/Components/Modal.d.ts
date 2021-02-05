@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NativeSyntheticEvent, NativeScrollEvent } from "react-native";
-import { IModalProps, IModalListInDto, IModalState } from "@Interfaces";
+import { IModalProps, IModalListInDto, IModalState } from "../Interfaces";
 export declare class ModalComponent extends React.PureComponent<IModalProps, IModalState> {
     private flatListRef;
     private numToRender;

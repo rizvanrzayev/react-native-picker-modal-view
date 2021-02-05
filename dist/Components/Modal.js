@@ -99,8 +99,9 @@ export class ModalComponent extends React.PureComponent {
             selectedObject &&
             ![selectedObject.Id] &&
             selected &&
-            ![selected.Id])
+            ![selected.Id]) {
             return;
+        }
         if (!requireSelection) {
             onSelected({});
         }

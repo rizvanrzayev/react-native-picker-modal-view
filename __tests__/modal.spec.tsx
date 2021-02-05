@@ -70,7 +70,8 @@ describe('ModalComponent', () => {
 			disabled={false}
 			selected={data}
 			requireSelection={false}
-			backButtonDisabled={false}
+      backButtonDisabled={false}
+      modalContainerStyle={{}}
 		/>);
 
 		beforeEach(() => {
@@ -99,7 +100,8 @@ describe('ModalComponent', () => {
 				autoSort={false}
 				disabled={false}
 				requireSelection={false}
-				backButtonDisabled={false}
+        backButtonDisabled={false}
+        modalContainerStyle={{}}
 			/>);
 			expect(_wrapper.state('alphabeticalIndexChars')).toEqual(['A', 'B', 'C', 'D', 'E']);
 

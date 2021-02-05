@@ -290,7 +290,9 @@ export class ModalComponent extends React.PureComponent<
 			selected &&
 			![selected.Id]
 		)
-			return;
+			{
+        return;
+      }
 
 		if (!requireSelection) {
 			onSelected({} as IModalListInDto);
